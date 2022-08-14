@@ -19,10 +19,6 @@ input.addEventListener(
   }, DEBOUNCE_DELAY)
 );
 
-function emptyMarkup() {
-  countryInfo.innerHTML = '';
-}
-
 function countryMarkup(data) {
   if (data.length > 10) {
     emptyMarkup();
@@ -34,8 +30,13 @@ function countryMarkup(data) {
   }
 }
 
-function error() {
+function error(e) {
+  emptyMarkup();
   Notify.failure('Oops, there is no country with that name');
+}
+
+function emptyMarkup() {
+  countryInfo.innerHTML = '';
 }
 
 function markupFromTwoCountries(data) {
